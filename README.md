@@ -34,6 +34,21 @@ Of course, there can always be more things to add. For example:
 Maybe in the future, someone from the team (or maybe even everyone that was involved) can come back together to
 have fun improving the game and seeing where they take the game from there.
 
+Addition of ranged enemy:
+	This enemy is implemented to be navigating the world like the other enemies that are not in the castles.
+	This new enemy will do ranged damage to the player forcing them to change their strategy when exploring
+	and encountering these enemies.
+
+Psuedocode:
+	1. Measure the distance between the enemy and the player.
+	2. If the player is within enemy attack range:
+		- check if enemy is ready to attack (not in cooldown):
+			- fire projectile:
+				- calculate the angle between the player and the enemy
+				- add the projectile to the active projectile list
+	
+	3. Reset the enemy's attack by setting a cooldown.
+
 You can play the game by downloading the game4_final_final.zip folder, extracting it, and running the jar.
 
 
