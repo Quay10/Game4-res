@@ -7,6 +7,9 @@ import items.*;
 
 
 public class EnemyHex extends Enemy {
+	
+	private int cooldown = 0;
+	
 	public EnemyHex (int x, int y, Game game) {
 		super(x, y, game);
 		this.setHealth(16);
@@ -61,11 +64,18 @@ public class EnemyHex extends Enemy {
 	
 	@Override
 	public void attackPlayer(double targetx, double targety, int deltaTick) {
+		if (cooldown > 0) {
+			cooldown--;
+		}
 		if (this.distanceTo(targetx, targety) > 400) {
 			this.moveToward(targetx, targety);
 		}
 		else {
-			this.shootProjectile(targetx, targety);
+			
+			if (cooldown == 0) {
+				this.shootProjectile(targetx, targety);
+				cooldown = 25;
+			}
 		}
 	}
 	
