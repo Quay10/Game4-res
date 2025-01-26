@@ -91,7 +91,9 @@ public class Tile {
                     int rx = rand.nextInt(800) + 100;
                     int ry = rand.nextInt(450) + 25;
                     EnemyTri1 enemy = new EnemyTri1(rx,ry,game);
+                    EnemyHex enemy2 = new EnemyHex(rx,ry,game);
                     enemies.add(enemy);
+                    enemies.add(enemy2);
                 }
                 if(getTileDifficulty(key) >= 20 && getTileDifficulty(key) < 40){
                     //50% chance to spawn a lvl 2 enemy
