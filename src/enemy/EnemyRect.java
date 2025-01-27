@@ -8,8 +8,8 @@ import game.*;
 import items.Cherries;
 public class EnemyRect extends Enemy{
 	private Item cherry;
-	public EnemyRect(int x, int y, Game game) {
-		super(x, y, game);
+	public EnemyRect(int x, int y,int damage, Game game) {
+		super(x, y, 1, game);
 		cherry = new Cherries();
 		this.drops.add(cherry);
 	}

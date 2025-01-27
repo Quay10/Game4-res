@@ -90,8 +90,8 @@ public class Tile {
                 if(getTileDifficulty(key) < 20){
                     int rx = rand.nextInt(800) + 100;
                     int ry = rand.nextInt(450) + 25;
-                    EnemyTri1 enemy = new EnemyTri1(rx,ry,game);
-                    EnemyHex enemy2 = new EnemyHex(rx,ry,game);
+                    EnemyTri1 enemy = new EnemyTri1(rx,ry,ry, game);
+                    EnemyHex enemy2 = new EnemyHex(rx,ry,ry, game);
                     enemies.add(enemy);
                     enemies.add(enemy2);
                 }
@@ -100,10 +100,10 @@ public class Tile {
                     int rx = rand.nextInt(800) + 100;
                     int ry = rand.nextInt(450) + 25;
                     if(percentChance(50)){
-                        EnemyTri2 enemy = new EnemyTri2(rx,ry,game);
+                        EnemyTri2 enemy = new EnemyTri2(rx,ry,ry, game);
                         enemies.add(enemy);
                     }else{
-                        EnemyTri1 enemy = new EnemyTri1(rx,ry,game);
+                        EnemyTri1 enemy = new EnemyTri1(rx,ry,ry, game);
                         enemies.add(enemy);
                     }
                 }
@@ -112,10 +112,10 @@ public class Tile {
                     int rx = rand.nextInt(800) + 100;
                     int ry = rand.nextInt(450) + 25;
                     if(percentChance(50)){
-                        EnemyTri3 enemy = new EnemyTri3(rx,ry,game);
+                        EnemyTri3 enemy = new EnemyTri3(rx,ry,ry, game);
                         enemies.add(enemy);
                     }else{
-                        EnemyTri2 enemy = new EnemyTri2(rx,ry,game);
+                        EnemyTri2 enemy = new EnemyTri2(rx,ry,ry, game);
                         enemies.add(enemy);
                     }
                 }
@@ -124,10 +124,10 @@ public class Tile {
                     int rx = rand.nextInt(800) + 100;
                     int ry = rand.nextInt(450) + 25;
                     if(percentChance(50)){
-                        EnemyTri4 enemy = new EnemyTri4(rx,ry,game);
+                        EnemyTri4 enemy = new EnemyTri4(rx,ry,ry, game);
                         enemies.add(enemy);
                     }else{
-                        EnemyTri3 enemy = new EnemyTri3(rx,ry,game);
+                        EnemyTri3 enemy = new EnemyTri3(rx,ry,ry, game);
                         enemies.add(enemy);
                     }
                 }
@@ -135,7 +135,7 @@ public class Tile {
                     //50% chance to spawn a lvl 4 enemy
                     int rx = rand.nextInt(800) + 100;
                     int ry = rand.nextInt(450) + 25;
-                    EnemyTri4 enemy = new EnemyTri4(rx,ry,game);
+                    EnemyTri4 enemy = new EnemyTri4(rx,ry,ry, game);
                     enemies.add(enemy);
                 }
             }

@@ -6,10 +6,11 @@ import game.Game;
 
 public class EnemyProjectileFire extends EnemyProjectile{
 
-    public EnemyProjectileFire(double x, double y, double angle, Game game) {
+    public EnemyProjectileFire(double x, double y, double angle, int damage, Game game) {
         this.x = x;
         this.y = y;
         this.angle = angle;
+        this.damage = damage;
         this.game = game;
         GImage image = new GImage("media/Items/EnemyProjectile/FireBall.png");
         this.compound.add(image);

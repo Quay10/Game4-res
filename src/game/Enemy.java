@@ -14,6 +14,7 @@ public abstract class Enemy{
     protected double y;
     protected boolean isDead = false;
     protected int health;
+    protected int damage;
     protected Game game;
 	protected boolean isRanged = false;
     protected StatusEffect statusEffect;
@@ -23,12 +24,13 @@ public abstract class Enemy{
     protected Item drop;
     protected boolean damageImageOn = true;
     protected int damageImageTimer = 0;
-    public Enemy(int x, int y, Game game) {
+    public Enemy(int x, int y, int damage, Game game) {
         bodyCompound = new GCompound();
         
         this.x = x;
         this.y = y;
         this.game = game;
+        this.damage = damage;
         addObjectsToCompound(x, y);
         drop = calculateDrop();
         this.drops.add(drop);
@@ -128,7 +130,7 @@ public abstract class Enemy{
         
     }
 	public void attackEvent(Player player){
-		player.setHealth(player.getHealth()-1);
+		player.setHealth(player.getHealth()-this.damage);
 		player.getHealthPoints().updateHealthPointsIcons(player.getHealth());
 		player.setInvurnerableCooldown(100);
 		player.setVelX((int)((player.getPlayerCenter().getX() - this.x) /7));

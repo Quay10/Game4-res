@@ -8,17 +8,18 @@ public abstract class EnemyProjectile {
     protected double x;
     protected double y;
     protected double angle;
+    protected int damage;
     protected Game game;
     protected double speed = 5;
     protected GCompound compound = new GCompound();
     private boolean unloaded = false;
-    public void damagePlayer(double x, double y, Game game){
+    public void damagePlayer(double x, double y, int damage, Game game){
         //if distance from the playercenter to the projectile is less than the radius of the player (25)
         if(!unloaded){
             if(Math.sqrt(Math.pow(x - game.getPlayer().getPlayerCenter().getX(), 2) + Math.pow(y - game.getPlayer().getPlayerCenter().getY(), 2)) < 25) {
                 if(game.getPlayer().getInvurnerableCooldown() <= 0){
                     Player player = game.getPlayer();
-                    player.setHealth(player.getHealth()-1);
+                    player.setHealth(player.getHealth()-this.damage);
                     player.getHealthPoints().updateHealthPointsIcons(player.getHealth());
                     player.setInvurnerableCooldown(100);
                     game.remove(compound);
@@ -36,7 +37,7 @@ public abstract class EnemyProjectile {
         if(x > 1500 || x < 0 || y > 800 || y < 0) {
             game.remove(compound);
         }
-        damagePlayer(x, y, game);
+        damagePlayer(x, y, damage, game);
         
     }
 }

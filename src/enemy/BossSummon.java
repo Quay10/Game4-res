@@ -5,8 +5,8 @@ import acm.graphics.GImage;
 import game.*;
 import items.BossSummonItem;
 public class BossSummon extends Enemy{
-	public BossSummon(int x, int y, Game game) {
-		super(x, y, game);
+	public BossSummon(int x, int y,int damage, Game game) {
+		super(x, y, 1, game);
 		this.setHealth(52);
 	}
 	

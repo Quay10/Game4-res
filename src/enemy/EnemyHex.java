@@ -10,9 +10,9 @@ public class EnemyHex extends Enemy {
 	
 	private int cooldown = 0;
 	
-	public EnemyHex (int x, int y, Game game) {
-		super(x, y, game);
-		this.setHealth(16);
+	public EnemyHex (int x, int y,int damage, Game game) {
+		super(x, y, 5, game);
+		this.setHealth(8);
 		this.isRanged = true;
 	}
 	
@@ -31,7 +31,7 @@ public class EnemyHex extends Enemy {
 		double dy = targety - y;
 		double angle = Math.atan2(dy, dx);
 		
-		EnemyProjectileFire p = new EnemyProjectileFire(x, y, angle, this.game);
+		EnemyProjectileFire p = new EnemyProjectileFire(x, y, angle, this.damage, this.game);
 		this.game.add(p.getCompound());
 		this.game.getEnemyProjectiles().add(p);
 	}

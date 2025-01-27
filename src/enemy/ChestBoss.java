@@ -11,8 +11,8 @@ import items.*;
 
 public class ChestBoss extends Enemy{
 
-    public ChestBoss(int x, int y, Game game) {
-        super(x, y, game);
+    public ChestBoss(int x, int y, int damage, Game game) {
+        super(x, y, 1, game);
         
         GImage bodyImage = new GImage("media/Items/chest.png");
         bodyImage.scale(4);

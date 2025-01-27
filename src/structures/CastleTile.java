@@ -40,33 +40,33 @@ public class CastleTile extends Tile{
     }
     public void generateEnemies(){
         if(parentCastle.isBossCastle()){
-           Boss b = new Boss(900,250,parentCastle.getParentTile().getGame());
+           Boss b = new Boss(900,250,1,parentCastle.getParentTile().getGame());
             enemies.add(b);
-            ChestBoss c = new ChestBoss(900,250,parentCastle.getParentTile().getGame());
+            ChestBoss c = new ChestBoss(900,250, 1,parentCastle.getParentTile().getGame());
             enemies.add(c);
         }else{
             //if tile difficulty is greater than 20 make the enemies enemy rect 2, else make them enemy rect 1
             if((double)parentCastle.getParentTile().getTileDifficulty(parentCastle.getParentTile().getKey()) > 20){
                 //add 3 enemy rect 2s in random locations
                 for(int i = 0; i < 3; i++){
-                    EnemyRect2 e = new EnemyRect2((int)(Math.random()*500)+500,(int)(Math.random()*500),parentCastle.getParentTile().getGame());
+                    EnemyRect2 e = new EnemyRect2((int)(Math.random()*500)+500,(int)(Math.random()*500),i, parentCastle.getParentTile().getGame());
                     enemies.add(e);
-                    EnemyTri4 e2 = new EnemyTri4((int)(Math.random()*500)+500,(int)(Math.random()*500),parentCastle.getParentTile().getGame());
+                    EnemyTri4 e2 = new EnemyTri4((int)(Math.random()*500)+500,(int)(Math.random()*500),i, parentCastle.getParentTile().getGame());
                     enemies.add(e2);
                 }
-                Chest2 c = new Chest2(900,250,parentCastle.getParentTile().getGame());
+                Chest2 c = new Chest2(900,250, 1, parentCastle.getParentTile().getGame());
                 enemies.add(c);
             }else{
                 //add 3 enemy rect 1s in random locations
                 for(int i = 0; i < 3; i++){
-                    EnemyRect1 e = new EnemyRect1((int)(Math.random()*500)+500,(int)(Math.random()*500),parentCastle.getParentTile().getGame());
+                    EnemyRect1 e = new EnemyRect1((int)(Math.random()*500)+500,(int)(Math.random()*500),i,parentCastle.getParentTile().getGame());
                     enemies.add(e);
-                    EnemyTri2 e2 = new EnemyTri2((int)(Math.random()*500)+500,(int)(Math.random()*500),parentCastle.getParentTile().getGame());
+                    EnemyTri2 e2 = new EnemyTri2((int)(Math.random()*500)+500,(int)(Math.random()*500),i, parentCastle.getParentTile().getGame());
                     enemies.add(e2);
                 }
                 //add 1 chest
                 //make the chest spawn at the middle right of the screen\
-                Chest c = new Chest(900,250,parentCastle.getParentTile().getGame());
+                Chest c = new Chest(900,250,1,parentCastle.getParentTile().getGame());
                 enemies.add(c);
             
             }

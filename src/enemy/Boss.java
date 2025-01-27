@@ -36,9 +36,9 @@ public class Boss extends Enemy {
     Color c2 = new Color(1f, 0.5f, 0f, .1f);
     //yellow
     Color c3 = new Color(1f, 1f, 0f, .1f);
-    public Boss(int x, int y, Game game) {
+    public Boss(int x, int y,int damage, Game game) {
 
-        super(x, y, game);
+        super(x, y, 1, game);
         healthBar = new GRect(100, 10);
         shield = new GOval(200, 200);
         this.health = 1000;
@@ -180,7 +180,7 @@ public class Boss extends Enemy {
         double dy = targety - y;
         double angle = Math.atan2(dy, dx);
 
-        EnemyProjectileFire p = new EnemyProjectileFire(x, y, angle, this.game);
+        EnemyProjectileFire p = new EnemyProjectileFire(x, y, angle, this.damage, this.game);
         this.game.add(p.getCompound());
         this.game.getEnemyProjectiles().add(p);
     }
@@ -208,7 +208,7 @@ public class Boss extends Enemy {
                 int chance = (int)(Math.random() * 100);
                 if (chance == 10) {
                     int y = (int)(Math.random() * 500);
-                    BossSummon b = new BossSummon((int) this.getX(), y, this.game);
+                    BossSummon b = new BossSummon((int) this.getX(), y, y, this.game);
                     this.game.getCastle().getCastleTile().getEnemies().add(b);
                     this.game.add(b.getBody());
                 }
@@ -221,11 +221,11 @@ public class Boss extends Enemy {
         int y = (int)(Math.random() * 500);
         int y2 = (int)(Math.random() * 500);
         int y3 = (int)(Math.random() * 500);
-        BossSummon b = new BossSummon((int) this.getX(), y, this.game);
+        BossSummon b = new BossSummon((int) this.getX(), y, y3, this.game);
         this.game.getCastle().getCastleTile().getEnemies().add(b);
-        BossSummon b2 = new BossSummon((int) this.getX(), y2, this.game);
+        BossSummon b2 = new BossSummon((int) this.getX(), y2, y3, this.game);
         this.game.getCastle().getCastleTile().getEnemies().add(b2);
-        BossSummon b3 = new BossSummon((int) this.getX(), y3, this.game);
+        BossSummon b3 = new BossSummon((int) this.getX(), y3, y3, this.game);
         this.game.getCastle().getCastleTile().getEnemies().add(b3);
         this.game.add(b.getBody());
         this.game.add(b2.getBody());

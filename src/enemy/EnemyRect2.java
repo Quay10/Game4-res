@@ -5,8 +5,8 @@ import acm.graphics.GImage;
 import game.*;
 import items.*;
 public class EnemyRect2 extends Enemy{
-	public EnemyRect2(int x, int y, Game game) {
-		super(x, y, game);
+	public EnemyRect2(int x, int y, int damage, Game game) {
+		super(x, y, 2, game);
 		this.setHealth(80);
 		this.isRanged = true;
 	}
@@ -27,7 +27,7 @@ public class EnemyRect2 extends Enemy{
 		double dy = targety - y;
 		double angle = Math.atan2(dy, dx);
 		
-		EnemyProjectileFire p = new EnemyProjectileFire(x, y, angle, this.game);
+		EnemyProjectileFire p = new EnemyProjectileFire(x, y, angle, this.damage , this.game);
 		this.game.add(p.getCompound());
 		this.game.getEnemyProjectiles().add(p);
 	}

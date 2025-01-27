@@ -5,8 +5,8 @@ import acm.graphics.GImage;
 import game.*;
 import items.*;
 public class EnemyTri1 extends Enemy{
-	public EnemyTri1(int x, int y, Game game) {
-		super(x, y, game);
+	public EnemyTri1(int x, int y,int damage, Game game) {
+		super(x, y, 2, game);
 		this.setHealth(4);
 	}
 	
