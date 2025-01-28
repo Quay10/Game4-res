@@ -2,12 +2,13 @@ package enemy;
 
 
 import acm.graphics.GImage;
+import config.StatsLoader;
 import game.*;
 import items.*;
 public class EnemyTri2 extends Enemy{
 	public EnemyTri2(int x, int y, int damage, Game game) {
-		super(x, y, 1, game);
-		this.setHealth(8);
+		super(x, y, StatsLoader.getStat("EnemyTri2.damage"), game);
+		this.setHealth(StatsLoader.getStat("EnemyTri2.health"));
 	}
 	
 	@Override

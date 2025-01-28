@@ -2,12 +2,13 @@ package enemy;
 
 
 import acm.graphics.GImage;
+import config.StatsLoader;
 import game.*;
 import items.*;
 public class EnemyRect2 extends Enemy{
 	public EnemyRect2(int x, int y, int damage, Game game) {
-		super(x, y, 2, game);
-		this.setHealth(80);
+		super(x, y, StatsLoader.getStat("EnemyRect2.damage"), game);
+		this.setHealth(StatsLoader.getStat("EnemyRect2.health"));
 		this.isRanged = true;
 	}
 	

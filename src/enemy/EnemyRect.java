@@ -4,12 +4,13 @@ package enemy;
 import java.util.ArrayList;
 
 import acm.graphics.GImage;
+import config.StatsLoader;
 import game.*;
 import items.Cherries;
 public class EnemyRect extends Enemy{
 	private Item cherry;
 	public EnemyRect(int x, int y,int damage, Game game) {
-		super(x, y, 1, game);
+		super(x, y, StatsLoader.getStat("EnemyRect.damage"), game);
 		cherry = new Cherries();
 		this.drops.add(cherry);
 	}

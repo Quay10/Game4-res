@@ -134,7 +134,7 @@ public class Saver {
         file.mkdirs();
     }
 
-    public Game load(String saveName, GraphicsProgram graphicsProgram){
+    public Game load(String saveName, GraphicsProgram graphicsProgram) throws IOException{
 
         //for file in saves folder
         int WINDOWHEIGHT = 500;

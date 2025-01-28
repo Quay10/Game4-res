@@ -1,6 +1,7 @@
 package enemy;
 
 import acm.graphics.GImage;
+import config.StatsLoader;
 import game.*;
 import items.*;
 
@@ -11,8 +12,8 @@ public class EnemyHex extends Enemy {
 	private int cooldown = 0;
 	
 	public EnemyHex (int x, int y,int damage, Game game) {
-		super(x, y, 5, game);
-		this.setHealth(8);
+		super(x, y, StatsLoader.getStat("EnemyHex.damage"), game);
+		this.setHealth(StatsLoader.getStat("EnemyHex.health"));
 		this.isRanged = true;
 	}
 	

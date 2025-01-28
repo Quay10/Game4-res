@@ -1,10 +1,12 @@
 package game;
+import java.io.IOException;
 import java.util.*;
 
 import structures.Castle;
 import userinterface.*;
 import acm.graphics.GObject;
 import acm.program.GraphicsProgram;
+import config.StatsLoader;
 import items.*;
 public class Game {
 	
@@ -21,7 +23,13 @@ public class Game {
     private Castle castle = null;
     
     // Main Program Function
-    public Game(int screenWidth, int screenHeight, GraphicsProgram graphicsProgram, boolean load) {
+    public Game(int screenWidth, int screenHeight, GraphicsProgram graphicsProgram, boolean load) throws IOException {
+    	
+    	try {
+            StatsLoader.loadStats("src/config/enemyStats.properties");
+        } catch (IOException e) {
+            System.err.println("Error loading enemy stats: " + e.getMessage());
+        }
         this.graphicsProgram = graphicsProgram;
         player = new Player(screenWidth / 2, screenHeight / 2,screenWidth, screenHeight, this, load);
         this.screenWidth = screenWidth;

@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
@@ -65,7 +66,7 @@ public class MainMenu implements ActionListener{
         }
     }
 
-    public void keyPressed(MouseEvent e) {
+    public void keyPressed(MouseEvent e) throws IOException {
         //buttosn are 225 width
         Saver saver = new Saver();
         if(loadScreen){

@@ -2,6 +2,7 @@ package game;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
@@ -74,7 +75,7 @@ public class Main extends GraphicsProgram{
             saver.removeAllInSaveDirectory(save);
         }
     }
-    public void startGame(){
+    public void startGame() throws IOException{
         removeMainMenu();
         game = new Game(windowWidth, windowHeight, this, false);
         mainMenuOn = false;
@@ -86,7 +87,7 @@ public class Main extends GraphicsProgram{
         drawUI();
         runTimer.start();
     }
-    public void loadGame(String saveName){
+    public void loadGame(String saveName) throws IOException{
         mainMenuOn = false;
         removeMainMenu();
         game = saver.load(saveName, this);
@@ -352,7 +353,12 @@ public class Main extends GraphicsProgram{
             gameOver.keyPressed(e);
         }
         if(mainMenuOn && e.getButton() == 1){
-            mainMenu.keyPressed(e);
+            try {
+				mainMenu.keyPressed(e);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
         }
         else if(e.getButton() == 1 && isPaused){
             pause.keyPressed(e);
