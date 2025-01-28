@@ -48,6 +48,26 @@ Psuedocode:
 				- add the projectile to the active projectile list
 	
 	3. Reset the enemy's attack by setting a cooldown.
+	
+Recap of what was added and it's implementation:
+	- We added a ranged enemy that does damage from a distance and gave it a cooldown of 25 seconds
+	before it attacks again. It will spawn with the enemy triangles and was set to do 0 damage for
+	for testing purposes. We used shootProjectile() to calculate the distance between the target
+	and the enemy to have it shoot in the players direction. In the attackPlayer() method is where
+	we dedicated the cool down timer of 25. To test the cooldown and if it worked I changed how long
+	it would take to shoot another attack at the player or commented it out to see what the enemy did
+	without a cooldown timer. The other feature that was added was the enemyStats.properties file that
+	we actually had to go and change in other files (all enemyRect & enemyTri) files to make sure the changes
+	actually took effect. We implemented this using a loader to fetch the stats that we created in the
+	enemyStats.properties. From here we used .getStats() to call either the damage stat or health stat from
+	the correct enemy in the .properties file.
+	
+Steps to show implementation:
+	- After having the project ready to run, click on the EnemyHex.java, this is the ranged enemy that was added.
+	- To test if the stat changes work, click on src, then enemyStats.properties, and change the damage to something like
+	3 to 6 just to make sure when you test it you don't die instantly. You can also change the enemy health
+	using the same steps those stats would be in the same file.
+	- As mentioned before EnemyHex is at 0 damage for testing reasons feel free to change it.
 
 You can play the game by downloading the game4_final_final.zip folder, extracting it, and running the jar.
 
